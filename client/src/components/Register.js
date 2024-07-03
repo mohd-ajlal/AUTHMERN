@@ -80,9 +80,11 @@ const Register = () => {
                     fname, email, password, cpassword
                 })
             });
+            
+            console.log(data);
 
             const res = await data.json();
-            // console.log(res.status);
+            console.log(res.status);
 
             if (res.status === 201) {
                 toast.success("Registration Successfully done 😃!", {

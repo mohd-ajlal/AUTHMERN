@@ -40,7 +40,11 @@ const userSchema = new mongoose.Schema({
             }
         }
     ]
-});
+}
+    , {
+        timestamps: true
+    }
+);
 
 
 
@@ -59,7 +63,7 @@ userSchema.pre("save", async function (next) {
 
 
 // token generate
-userSchema.methods.generateAuthtoken = async function () {
+userSchema.methods.generateAuthtoken = async function() {
     try {
         let token23 = jwt.sign({ _id: this._id }, keysecret, {
             expiresIn: "1d"
